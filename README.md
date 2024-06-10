@@ -17,15 +17,15 @@ The Newsletter Service app is a server-side Node.js application built with TypeS
 
 To run the application, you need to set up environment variables. Create a .env file in the root directory of the project with the following content:
 
-- PORT=5000
-- TWILIO_SID=Your_Twilio_SID
-- TWILIO_AUTH_TOKEN=Your_Twilio_Auth_Token
-  TWILIO_PHONE_NUMBER=Your_Twilio_Phone_Number
-  DB_HOST=Your_Database_Host
-  DB_PORT=5432
-  DB_USER=Your_Database_Username
-  DB_PASSWORD=Your_Database_Password
-  DB_NAME=Your_Database_Name
+PORT=5000
+TWILIO_SID=Your_Twilio_SID
+TWILIO_AUTH_TOKEN=Your_Twilio_Auth_Token
+TWILIO_PHONE_NUMBER=Your_Twilio_Phone_Number
+DB_HOST=Your_Database_Host
+DB_PORT=5432
+DB_USER=Your_Database_Username
+DB_PASSWORD=Your_Database_Password
+DB_NAME=Your_Database_Name
 
 ### Obtaining Configuration Data
 
