@@ -80,11 +80,11 @@ Example request:
 }
 ```
 
-# Subscription Management
+## Subscription Management
 
 The application checks user subscriptions stored in the subscriptions table to determine whether to send SMS reminders.
 
-# Daily Reminders
+## Daily Reminders
 
 A cron job is set up to run daily at 9 AM Europe/Warsaw time to send subscription reminder messages to users who are not subscribed.
 
