@@ -9,38 +9,36 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-(async () => {
+const startServer = async () => {
+  await dbPool.connect(); // Poczekaj na inicjalizację bazy danych
+  console.log('Connected to the database');
+
+  app.use('/newsletter', newsletterRoutes);
+  app.use(errorHandler);
+
   const cron = await import('node-cron');
   const { sendSubscriptionReminder } = await import(
     './services/newsletterService.js'
   );
 
-  dbPool
-    .connect()
-    .then(() => {
-      console.log('Connected to the database');
+  cron.schedule(
+    '0 9 * * *',
+    async () => {
+      console.log('Running daily newsletter job');
+      await sendSubscriptionReminder();
+    },
+    {
+      scheduled: true,
+      timezone: 'Europe/Warsaw',
+    }
+  );
 
-      app.use('/newsletter', newsletterRoutes);
-      app.use(errorHandler);
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
+};
 
-      cron.schedule(
-        '0 9 * * *',
-        async () => {
-          console.log('Running daily newsletter job');
-          await sendSubscriptionReminder();
-        },
-        {
-          scheduled: true,
-          timezone: 'Europe/Warsaw',
-        }
-      );
-
-      const PORT = process.env.PORT || 5000;
-      app.listen(PORT, () => {
-        console.log(`Server is running on port ${PORT}`);
-      });
-    })
-    .catch(err => {
-      console.error('Database connection failed', err);
-    });
-})();
+startServer().catch((err: Error) => {
+  console.error('Failed to start server', err);
+});
