@@ -20,12 +20,12 @@ To run the application, you need to set up environment variables. Create a .env 
 - PORT=5000
 - TWILIO_SID=Your_Twilio_SID
 - TWILIO_AUTH_TOKEN=Your_Twilio_Auth_Token
-  TWILIO_PHONE_NUMBER=Your_Twilio_Phone_Number
-  DB_HOST=Your_Database_Host
-  DB_PORT=5432
-  DB_USER=Your_Database_Username
-  DB_PASSWORD=Your_Database_Password
-  DB_NAME=Your_Database_Name
+- TWILIO_PHONE_NUMBER=Your_Twilio_Phone_Number
+- DB_HOST=Your_Database_Host
+- DB_PORT=5432
+- DB_USER=Your_Database_Username
+- DB_PASSWORD=Your_Database_Password
+- DB_NAME=Your_Database_Name
 
 ### Obtaining Configuration Data
 
@@ -36,15 +36,15 @@ To run the application, you need to set up environment variables. Create a .env 
 
 An additional sample `.env` file can be used for testing purposes. Please note that these are confidential credentials and should not be used in a production environment. Mailgun data is still hidden because the website's regulations prohibit sharing it.
 
-TWILIO_SID=ACe5ae94f48d8024c080bf74ddcf55a2c8
-TWILIO_AUTH_TOKEN=31a6f586cfa468787eebfbaca8605e16
-TWILIO_PHONE_NUMBER=+17402245733
-PORT=5000
-DB_HOST=jelani.db.elephantsql.com
-DB_PORT=5432
-DB_USER=gykjkixa
-DB_PASSWORD=jA404fZnIaogvpLv3kMpUmaS7uva2PPy
-DB_NAME=gykjkixa
+- TWILIO_SID=ACe5ae94f48d8024c080bf74ddcf55a2c8
+- TWILIO_AUTH_TOKEN=31a6f586cfa468787eebfbaca8605e16
+- TWILIO_PHONE_NUMBER=+17402245733
+- PORT=5000
+- DB_HOST=jelani.db.elephantsql.com
+- DB_PORT=5432
+- DB_USER=gykjkixa
+- DB_PASSWORD=jA404fZnIaogvpLv3kMpUmaS7uva2PPy
+- DB_NAME=gykjkixa
 
 **Important Note**: The above credentials are provided for testing purposes only and should be treated as sensitive information. Do not use these credentials in a production environment.
 
@@ -63,6 +63,10 @@ For application development and launch with automatic reload after code changes,
 
 - npm run dev
 
+## Database Configuration and Fallback
+
+The application requires a connection to a PostgreSQL database to operate fully. However, if the database is not configured or the connection fails, the application will use mock data. This allows you to test and develop the application without needing a fully set up database.
+
 ## Features
 
 ### Sending SMS Newsletters
@@ -80,12 +84,7 @@ Example request:
 }
 ```
 
-# Subscription Management
-
 The application checks user subscriptions stored in the subscriptions table to determine whether to send SMS reminders.
-
-# Daily Reminders
-
 A cron job is set up to run daily at 9 AM Europe/Warsaw time to send subscription reminder messages to users who are not subscribed.
 
 ## Author
