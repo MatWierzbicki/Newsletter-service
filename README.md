@@ -32,22 +32,6 @@ To run the application, you need to set up environment variables. Create a .env 
 - **Twilio**: Sign up at [Twilio](https://www.twilio.com/) and navigate to the console dashboard to find your SID, Auth Token, and register a phone number.
 - **PostgreSQL**: Set up a PostgreSQL database either locally or through a service like [ElephantSQL](https://www.elephantsql.com/), and note down the necessary connection details.
 
-### Example .env for Testing
-
-An additional sample `.env` file can be used for testing purposes. Please note that these are confidential credentials and should not be used in a production environment. Mailgun data is still hidden because the website's regulations prohibit sharing it.
-
-- TWILIO_SID=ACe5ae94f48d8024c080bf74ddcf55a2c8
-- TWILIO_AUTH_TOKEN=31a6f586cfa468787eebfbaca8605e16
-- TWILIO_PHONE_NUMBER=+17402245733
-- PORT=5000
-- DB_HOST=jelani.db.elephantsql.com
-- DB_PORT=5432
-- DB_USER=gykjkixa
-- DB_PASSWORD=jA404fZnIaogvpLv3kMpUmaS7uva2PPy
-- DB_NAME=gykjkixa
-
-**Important Note**: The above credentials are provided for testing purposes only and should be treated as sensitive information. Do not use these credentials in a production environment.
-
 ## Running the Application
 
 ### Production Mode
